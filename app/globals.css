@@ -22,6 +22,52 @@ body {
   font-weight: 500;
 }
 
+.job {
+  display: grid;
+  gap: 1rem;
+  grid-template-areas:
+    'company'
+    'position'
+    'job-info'
+    'skills';
+}
+
+.logo {
+  grid-area: logo;
+}
+
+.company {
+  grid-area: company;
+}
+
+.position {
+  grid-area: position;
+}
+
+.job-info {
+  grid-area: job-info;
+  @apply text-dark-cyan;
+}
+
+.skills {
+  grid-area: skills;
+  @apply max-w-full;
+}
+
+.skill {
+  @apply rounded-md bg-filter-tablets p-2 text-primary;
+}
+
 footer a {
   @apply underline;
+}
+
+@media (min-width: 768px) {
+  .job {
+    grid-template-areas:
+      'company company'
+      'position skills'
+      'job-info job-info';
+    gap: 0.5rem;
+  }
 }

@@ -6,7 +6,10 @@ import JobList from './components/JobList'
 {
   /* TODO
   - fix background fill of mobile background image
-  - fix types for listings in JobList component
+  - find better solution for margin-top of JobList
+  - add dot symbol between job info
+  - generateId() no longer needed??
+  - figure out positioning of logo
   */
 }
 
@@ -26,7 +29,7 @@ async function fetchListings() {
 }
 
 const Home = async () => {
-  const listings = await fetchListings() // curly braces necessary??
+  const listings = await fetchListings()
 
   if (!listings) {
     console.error('Missing required data:', { listings })
@@ -35,7 +38,7 @@ const Home = async () => {
   return (
     <>
       <div>
-        <main className="m-auto min-h-[90vh] w-[90vw] max-w-[1000px]">
+        <main className="m-auto mt-[12rem] flex min-h-[90vh] w-[85vw] max-w-[1000px] items-center justify-center">
           {/* MAIN CONTENT */}
           <JobList listings={listings}></JobList>
         </main>
