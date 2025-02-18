@@ -11,9 +11,15 @@ const Job = ({ listing }: JobProps) => {
   return (
     <>
       <div
-        className={`job rounded-md bg-white p-4 shadow-md ${listing.featured && 'border-l-[5px] border-primary'}`}
+        className={`job relative rounded-md bg-white p-4 shadow-md ${listing.featured && 'border-l-[5px] border-primary'}`}
       >
-        {/* <div className="logo">{listing.logo}</div> */}
+        <div className="logo translate-y-[-50%] md:relative md:-translate-y-0">
+          <img
+            src={listing.logo}
+            alt="Company logo"
+            className="scale-75 md:scale-100"
+          />
+        </div>
         <div className="company flex space-x-6">
           <h1 className="font-[700] text-primary">{listing.company}</h1>
           <div className="tags space-x-2">

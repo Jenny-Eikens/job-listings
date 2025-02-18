@@ -26,6 +26,7 @@ body {
   display: grid;
   gap: 1rem;
   grid-template-areas:
+    'logo'
     'company'
     'position'
     'job-info'
@@ -65,9 +66,10 @@ footer a {
 @media (min-width: 768px) {
   .job {
     grid-template-areas:
-      'company company'
-      'position skills'
-      'job-info job-info';
+      'logo company company'
+      'logo position skills'
+      'logo job-info job-info';
     gap: 0.5rem;
+    grid-template-columns: 100px auto auto;
   }
 }
