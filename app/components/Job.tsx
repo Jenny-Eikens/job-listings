@@ -3,11 +3,12 @@ import { Listing } from './JobList'
 
 interface JobProps {
   listing: Listing
+  addFilter: (filter: string) => void
 }
 
 // const generateId = () => crypto.randomUUID()
 
-const Job = ({ listing }: JobProps) => {
+const Job = ({ listing, addFilter }: JobProps) => {
   return (
     <>
       <div
@@ -35,16 +36,35 @@ const Job = ({ listing }: JobProps) => {
             )}
           </div>
         </div>
-        <h2 className="position flex items-center font-[700] text-v-dark-cyan">
+        <h2 className="position flex items-center text-lg font-[700] text-v-dark-cyan">
           {listing.position}
         </h2>
-        <div className="job-info space-x-3">
-          <span className="posted-at">{listing.postedAt}</span>
-          <span className="contract">{listing.contract}</span>
-          <span className="location">{listing.location}</span>
+        <div className="job-info">
+          <div className="space-x-3">
+            <span className="posted-at">{listing.postedAt}</span>
+            <span className="contract">{listing.contract}</span>
+            <span className="location">{listing.location}</span>
+          </div>
+          <hr className="my-4 bg-v-dark-cyan md:hidden" />
         </div>
+
+        {/* MAJOR LEARNING MOMENT: see mapping below */}
         <div className="skills flex flex-wrap gap-[1rem] font-[700] md:justify-end">
-          <button className="skill">{listing.role}</button>
+          {[
+            listing.role,
+            listing.level,
+            ...listing.languages,
+            ...listing.tools,
+          ].map((skill, index) => (
+            <button
+              key={index}
+              className="skill"
+              onClick={() => addFilter(skill)}
+            >
+              {skill}
+            </button>
+          ))}
+          {/* <button className="skill">{listing.role}</button>
           <button className="skill">{listing.level}</button>
           {listing.languages.map((language, index) => (
             <button key={index} className="skill">
@@ -57,7 +77,7 @@ const Job = ({ listing }: JobProps) => {
               <button key={index} className="skill">
                 {tool}
               </button>
-            ))}
+            ))} */}
         </div>
       </div>
     </>

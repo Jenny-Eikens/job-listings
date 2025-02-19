@@ -10,6 +10,8 @@ import JobList from './components/JobList'
   - add dot symbol between job info
   - generateId() no longer needed??
   - figure out positioning of logo
+  - fix filters getting squished on mobile screens
+  - fix position of clear button on mobile screens
   */
 }
 
@@ -38,7 +40,7 @@ const Home = async () => {
   return (
     <>
       <div>
-        <main className="m-auto mt-[12rem] flex min-h-[90vh] w-[85vw] max-w-[1000px] items-center justify-center">
+        <main className="m-auto mt-[12rem] flex min-h-[90vh] w-[85vw] max-w-[1000px] justify-center">
           {/* MAIN CONTENT */}
           <JobList listings={listings}></JobList>
         </main>
