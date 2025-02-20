@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  min-height: 100%;
+  min-height: screen;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -31,6 +31,7 @@ body {
     'position'
     'job-info'
     'skills';
+  grid-template-rows: 35px auto auto auto auto;
 }
 
 .logo {
@@ -67,9 +68,22 @@ footer a {
   .job {
     grid-template-areas:
       'logo company company'
-      'logo position skills'
-      'logo job-info job-info';
+      'logo position position'
+      'logo job-info job-info'
+      'logo skills skills';
     gap: 0.5rem;
     grid-template-columns: 100px auto auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .job {
+    grid-template-areas:
+      'logo company company'
+      'logo position skills'
+      'logo job-info job-info';
+    gap: 1rem;
+    grid-template-columns: 100px auto auto;
+    grid-template-rows: auto;
   }
 }

@@ -6,12 +6,8 @@ import JobList from './components/JobList'
 {
   /* TODO
   - fix background fill of mobile background image
-  - find better solution for margin-top of JobList
-  - add dot symbol between job info
   - generateId() no longer needed??
-  - figure out positioning of logo
-  - fix filters getting squished on mobile screens
-  - fix position of clear button on mobile screens
+  - fix filters getting squished on mobile screens -> find better solution
   */
 }
 
@@ -40,11 +36,11 @@ const Home = async () => {
   return (
     <>
       <div>
-        <main className="m-auto mt-[12rem] flex min-h-[90vh] w-[85vw] max-w-[1000px] justify-center">
+        <main className="m-auto flex min-h-[90vh] w-[85vw] max-w-[1000px] justify-center pt-[calc(100vh/3)] md:pt-[calc(100vh/5)] lg:pt-[calc(100vh/4)]">
           {/* MAIN CONTENT */}
           <JobList listings={listings}></JobList>
         </main>
-        <footer className="bottom-1 mt-6 p-2 text-center text-sm md:bottom-0 md:p-0">
+        <footer className="mt-6 p-2 text-center text-sm">
           <div>
             Challenge by{' '}
             <a

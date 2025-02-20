@@ -12,15 +12,14 @@ const Job = ({ listing, addFilter }: JobProps) => {
   return (
     <>
       <div
-        className={`job relative rounded-md bg-white p-4 shadow-md ${listing.featured && 'border-l-[5px] border-primary'}`}
+        className={`job rounded-md bg-white p-4 pt-0 shadow-md md:pt-4 ${listing.featured && 'border-l-[5px] border-primary'}`}
       >
-        <div className="logo translate-y-[-50%] md:relative md:-translate-y-0">
-          <img
-            src={listing.logo}
-            alt="Company logo"
-            className="scale-75 md:scale-100"
-          />
-        </div>
+        {/* MAJOR LEARNING MOMENT: scaling always happens from the center, so the image will shift. To preven this, apply transform-origin: left */}
+        <img
+          src={listing.logo}
+          alt="Company logo"
+          className="logo origin-left translate-y-[-50%] scale-75 md:relative md:-translate-y-0 md:scale-100"
+        />
         <div className="company flex space-x-6">
           <h1 className="font-[700] text-primary">{listing.company}</h1>
           <div className="tags space-x-2">
@@ -36,20 +35,24 @@ const Job = ({ listing, addFilter }: JobProps) => {
             )}
           </div>
         </div>
-        <h2 className="position flex items-center text-lg font-[700] text-v-dark-cyan">
-          {listing.position}
-        </h2>
+        <a href="#">
+          <h2 className="position flex items-center text-lg font-[700] text-v-dark-cyan">
+            {listing.position}
+          </h2>
+        </a>
         <div className="job-info">
-          <div className="space-x-3">
+          <div className="flex items-center space-x-2">
             <span className="posted-at">{listing.postedAt}</span>
+            <span className="text-lg">&bull;</span>
             <span className="contract">{listing.contract}</span>
+            <span className="textlg">&bull;</span>
             <span className="location">{listing.location}</span>
           </div>
-          <hr className="my-4 bg-v-dark-cyan md:hidden" />
+          <hr className="my-3 bg-v-dark-cyan lg:hidden" />
         </div>
 
         {/* MAJOR LEARNING MOMENT: see mapping below */}
-        <div className="skills flex flex-wrap gap-[1rem] font-[700] md:justify-end">
+        <div className="skills mt-[-1rem] flex flex-wrap gap-[1rem] font-[700] md:mt-0 lg:justify-end">
           {[
             listing.role,
             listing.level,
@@ -58,8 +61,9 @@ const Job = ({ listing, addFilter }: JobProps) => {
           ].map((skill, index) => (
             <button
               key={index}
-              className="skill"
+              className="skill transition-colors hover:bg-primary hover:text-white"
               onClick={() => addFilter(skill)}
+              aria-label={`Add ${skill} to filters`}
             >
               {skill}
             </button>

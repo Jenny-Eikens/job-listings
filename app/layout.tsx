@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-mobile md:bg-desktop bg-background bg-contain bg-no-repeat">
+      <body className="bg-background bg-mobile bg-contain bg-no-repeat md:bg-desktop">
         {children}
       </body>
     </html>
