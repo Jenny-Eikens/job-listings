@@ -6,21 +6,19 @@ interface JobProps {
   addFilter: (filter: string) => void
 }
 
-// const generateId = () => crypto.randomUUID()
-
 const Job = ({ listing, addFilter }: JobProps) => {
   return (
     <>
       <div
         className={`job rounded-md bg-white p-4 pt-0 shadow-md md:pt-4 ${listing.featured && 'border-l-[5px] border-primary'}`}
       >
-        {/* MAJOR LEARNING MOMENT: scaling always happens from the center, so the image will shift. To preven this, apply transform-origin: left */}
+        {/* MAJOR LEARNING: scaling always happens from the center, so the image will shift. To preven this, apply transform-origin: left */}
         <img
           src={listing.logo}
           alt="Company logo"
-          className="logo origin-left translate-y-[-50%] scale-75 md:relative md:-translate-y-0 md:scale-100"
+          className="logo origin-left translate-y-[-50%] scale-[0.6] md:relative md:-translate-y-0 md:scale-100"
         />
-        <div className="company flex space-x-6">
+        <div className="company flex space-x-4">
           <h1 className="font-[700] text-primary">{listing.company}</h1>
           <div className="tags space-x-2">
             {listing.new && (
@@ -41,7 +39,7 @@ const Job = ({ listing, addFilter }: JobProps) => {
           </h2>
         </a>
         <div className="job-info">
-          <div className="flex items-center space-x-2">
+          <div className="mt-[-0.5rem] flex items-center space-x-2">
             <span className="posted-at">{listing.postedAt}</span>
             <span className="text-lg">&bull;</span>
             <span className="contract">{listing.contract}</span>
@@ -51,7 +49,7 @@ const Job = ({ listing, addFilter }: JobProps) => {
           <hr className="my-3 bg-v-dark-cyan lg:hidden" />
         </div>
 
-        {/* MAJOR LEARNING MOMENT: see mapping below */}
+        {/* MAJOR LEARNING: see mapping below */}
         <div className="skills mt-[-1rem] flex flex-wrap gap-[1rem] font-[700] md:mt-0 lg:justify-end">
           {[
             listing.role,

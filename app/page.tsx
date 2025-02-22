@@ -3,14 +3,6 @@ import fs from 'fs'
 import path from 'path'
 import JobList from './components/JobList'
 
-{
-  /* TODO
-  - fix background fill of mobile background image
-  - generateId() no longer needed??
-  - fix filters getting squished on mobile screens -> find better solution
-  */
-}
-
 async function fetchListings() {
   try {
     const filePath = path.join(process.cwd(), 'public', 'data.json')
@@ -36,7 +28,7 @@ const Home = async () => {
   return (
     <>
       <div>
-        <main className="m-auto flex min-h-[90vh] w-[85vw] max-w-[1000px] justify-center pt-[calc(100vh/3)] md:pt-[calc(100vh/5)] lg:pt-[calc(100vh/4)]">
+        <main className="m-auto flex min-h-[92vh] w-[85vw] max-w-[1000px] justify-center pt-[calc(100vh/3)] md:pt-[calc(100vh/6)] lg:pt-[calc(100vh/4)]">
           {/* MAIN CONTENT */}
           <JobList listings={listings}></JobList>
         </main>

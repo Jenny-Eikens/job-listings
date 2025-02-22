@@ -24,7 +24,7 @@ interface JobListProps {
 }
 
 const JobList = ({ listings }: JobListProps) => {
-  const [filters, setFilters] = useState([])
+  const [filters, setFilters] = useState<string[]>([])
   const [filteredJobs, setFilteredJobs] = useState(listings)
 
   const addFilter = (filter: string) => {

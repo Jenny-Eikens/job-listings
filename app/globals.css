@@ -31,7 +31,7 @@ body {
     'position'
     'job-info'
     'skills';
-  grid-template-rows: 35px auto auto auto auto;
+  grid-template-rows: 25px auto auto auto auto;
 }
 
 .logo {
@@ -53,6 +53,7 @@ body {
 
 .skills {
   grid-area: skills;
+  align-self: center;
   @apply max-w-full;
 }
 
@@ -61,7 +62,7 @@ body {
 }
 
 footer a {
-  @apply underline;
+  @apply text-primary underline;
 }
 
 @media (min-width: 768px) {
@@ -73,15 +74,19 @@ footer a {
       'logo skills skills';
     gap: 0.5rem;
     grid-template-columns: 100px auto auto;
+    grid-template-rows: auto;
+  }
+  .logo {
+    align-self: center;
   }
 }
 
 @media (min-width: 1024px) {
   .job {
     grid-template-areas:
-      'logo company company'
+      'logo company skills'
       'logo position skills'
-      'logo job-info job-info';
+      'logo job-info skills';
     gap: 1rem;
     grid-template-columns: 100px auto auto;
     grid-template-rows: auto;

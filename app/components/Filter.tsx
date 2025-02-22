@@ -1,7 +1,7 @@
 import React from 'react'
 
 interface FilterProps {
-  filters: []
+  filters: string[]
   removeFilter: (filter: string) => void
   clearFilters: () => void
 }
@@ -13,7 +13,7 @@ const Filter = ({ filters, removeFilter, clearFilters }: FilterProps) => {
         <div className="flex flex-wrap gap-[1rem]">
           {filters.map((filter, index) => (
             // overflow-hidden solved issue of right-hand border no longer being rounded due to button
-            // min-h added to prevent squishing when items wrap -> forced fix
+            // min-h added to prevent squishing when items wrap -> not ideal solution
             <span
               key={index}
               className="flex min-h-[40px] items-center gap-[0.5rem] overflow-hidden rounded-md bg-filter-tablets pl-2 text-primary"
