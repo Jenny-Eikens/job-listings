@@ -34,7 +34,7 @@ const Job = ({ listing, addFilter }: JobProps) => {
           </div>
         </div>
         <a href="#">
-          <h2 className="position flex items-center text-lg font-[700] text-v-dark-cyan">
+          <h2 className="position flex items-center text-lg font-[700] text-v-dark-cyan transition-colors hover:text-primary">
             {listing.position}
           </h2>
         </a>
