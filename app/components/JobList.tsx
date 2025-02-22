@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Job from './Job'
 import Filter from './Filter'
 
@@ -25,7 +25,6 @@ interface JobListProps {
 
 const JobList = ({ listings }: JobListProps) => {
   const [filters, setFilters] = useState<string[]>([])
-  const [filteredJobs, setFilteredJobs] = useState(listings)
 
   const addFilter = (filter: string) => {
     if (!filters.includes(filter)) {
@@ -41,19 +40,17 @@ const JobList = ({ listings }: JobListProps) => {
     setFilters([])
   }
 
-  useEffect(() => {
-    if (filters.length === 0) {
-      setFilteredJobs(listings)
-      return
-    }
-
+  let filteredJobs
+  if (filters.length === 0) {
+    filteredJobs = listings
+  } else {
     const matchingJobs = listings.filter((job) => {
       const jobTags = [job.role, job.level, ...job.languages, ...job.tools]
       return filters.every((filter) => jobTags.includes(filter))
     })
 
-    setFilteredJobs(matchingJobs)
-  }, [filters, listings])
+    filteredJobs = matchingJobs
+  }
 
   return (
     <>
