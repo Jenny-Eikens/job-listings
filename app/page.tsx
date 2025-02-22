@@ -28,7 +28,7 @@ const Home = async () => {
   return (
     <>
       <div>
-        <main className="m-auto flex min-h-[92vh] w-[85vw] max-w-[1000px] justify-center pt-[calc(100vh/3)] md:pt-[calc(100vh/6)] lg:pt-[calc(100vh/4)]">
+        <main className="m-auto flex min-h-[92vh] w-[85vw] max-w-[1000px] justify-center pt-[calc(100vh/3.5)] md:pt-[calc(100vh/6)] lg:pt-[calc(100vh/4)]">
           {/* MAIN CONTENT */}
           <JobList listings={listings}></JobList>
         </main>
