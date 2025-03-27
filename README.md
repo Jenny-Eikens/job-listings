@@ -90,5 +90,6 @@ In future projects, I would like to dive deeper into CSS and familiarize myself 
 
 ## Author
 
+- Website - [Jennifer Eikens](https://jennifereikens.com)
 - Frontend Mentor - [@Jenny-Eikens](https://www.frontendmentor.io/profile/Jenny-Eikens)
 - GitHub - [Jenny-Eikens](https://github.com/Jenny-Eikens)
